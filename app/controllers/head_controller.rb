@@ -43,7 +43,7 @@ class HeadController < ApplicationController
         end
     end 
 
-    get '/heads/:id/edit' do
+    patch '/heads/:id' do
         @head = Head.find_by_id(params[:id])
         if params.empty?
             redirect "/heads/#{@head.id}/edit"
