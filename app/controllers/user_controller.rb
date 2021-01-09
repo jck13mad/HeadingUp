@@ -16,21 +16,30 @@ class UserController < ApplicationController
             (session[:user_id] = user.id)
             redirect "/heads"
         else
-            redirect '/signup'
+            redirect "/signup"
         end
     end
 
     get '/login' do
         user = User.find(:username => params[:username])
-        
+
         if !logged_in? 
             erb :'/users/login'
         else
-            redirect '/heads'
+            redirect "/heads"
         end
     end
 
+    post '/login' do
+        user = User.find_by(:username => params[:username])
 
+        if user && user.authenticate(params[:password])
+            session[:user_id] = user.id
+            redirect "/heads"
+        else
+            redirect "/login"
+        end
+    end
 
 
 end
