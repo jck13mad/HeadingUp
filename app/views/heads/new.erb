@@ -4,10 +4,11 @@
 <form action="/heads" method="post">
     <p>Brand: <input type="text" name="brand"></p>
     <p>Name: <input type="text" name="name"></p>
-    <p>Image URL: <input type="text" name="img"></p>
+    <p>Image URL: <input type="text" name="img" value="/image/default_img.jpg"></p>
+    <p>(If you don't have the URL, please skip this one.)</p>
     <p>Price: <input type="float" name="price"></p>
     <p>Description: </p>
-    <textarea name="description" value="description" rows:"5" cols="10"></textarea>
+    <textarea name="description" value="Description" rows:"10" cols="75"></textarea>
 
     <input type="submit" value="Submit">
 </form>

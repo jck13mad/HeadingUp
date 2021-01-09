@@ -17,6 +17,23 @@ class HeadController < ApplicationController
         end
     end
 
+    post '/heads' do
+        if params.empty?
+            redirect "/heads/new"
+        elsif logged_in? && !params.empty?
+            @head = current_user.heads.create(user_id: current_user.id, brand: params[:brand], name: params[:name], price: params[:price], img: params[:img], description: params[:description])
+            if @head.save
+                redirect "/heads/#{@head.id}"
+            else
+                redirect "/heads/new"
+            end
+        else
+            redirect "/login"
+        end
+        
+        current_user.save
+    end
+
     
 
 end
