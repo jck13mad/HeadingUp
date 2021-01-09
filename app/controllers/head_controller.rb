@@ -34,6 +34,13 @@ class HeadController < ApplicationController
         current_user.save
     end
 
-    
+    get '/heads/:id' do
+        if logged_in? 
+            @head = Head.find_by_id(params[:id])
+            erb :'/heads/view'
+        else
+            redirect "/login"
+        end
+    end 
 
 end

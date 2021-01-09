@@ -1,0 +1,11 @@
+
+<div class="head_page">
+
+    <h2 class="head_page_title">Viewing Head </h2>
+    <br>
+
+    <h3 class="head_name"><%= @head.brand %> <%= @head.name %></h3>
+    <img class="head_image" src='<%= @head.img %>' height="200" width="200">
+    <p class="head_price">$<%= @head.price %></p>
+    <div class="head_desc"> <p class="item description"><%= @head[:description] %></p></div>
+</div>
