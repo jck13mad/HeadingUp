@@ -9,6 +9,14 @@ class HeadController < ApplicationController
         end
     end
 
+    get '/heads/new' do
+        if logged_in?
+            erb :'/heads/new'
+        else
+            redirect "/login"
+        end
+    end
 
+    
 
 end

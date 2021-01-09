@@ -21,7 +21,7 @@ class UserController < ApplicationController
     end
 
     get '/login' do
-        user = User.find(:username => params[:username])
+        # user = User.find(:username => params[:username])
 
         if !logged_in? 
             erb :'/users/login'
