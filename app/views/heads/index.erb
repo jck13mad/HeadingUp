@@ -1,16 +1,18 @@
 <h1>Welcome to your Heading Up collection!</h1>
 <a href="/heads/new"><button>Add Head</button></a>
 
-<% if current_user.heads == nil%>
-    <h2>Start adding heads to your collection!</h2>
-<% else %>
-    <% current_user.heads.each do |h| %>
-        <div class="item_grid_container">
-            <img class="item_grid_img" src="<%= h.img %>" alt="<%= h.brand %> - <% h.name %>" height="200" width="200">
-            <div class="grid_content">
-                <p><%= h.brand %> <%= h.name %></p>
-                <p><b>$<%= h.price %></b></p>
+<div class="item_grid">
+    <% if current_user.heads == nil%>
+        <h2>Start adding heads to your collection!</h2>
+    <% else %>
+        <% current_user.heads.each do |h| %>
+            <div class="item_grid_container">
+                <img class="item_grid_img" src="<%= h.img %>" alt="<%= h.brand %> - <% h.name %>" height="200" width="200">
+                <div class="grid_content">
+                    <p><%= h.brand %> <%= h.name %></p>
+                    <p><b>$<%= h.price %></b></p>
+                </div>
             </div>
-        </div>
+        <% end %>
     <% end %>
-<% end %>
+</div>

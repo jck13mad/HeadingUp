@@ -43,4 +43,17 @@ class HeadController < ApplicationController
         end
     end 
 
+    get '/heads/:id/edit' do
+        @head = Head.find_by_id(params[:id])
+        if params.empty?
+            redirect "/heads/#{@head.id}/edit"
+        elsif logged_in? && !params.empty? && current_user.heads.include?(@head)
+            @head.update(user_id: current_user.id, brand: params[:brand], name: params[:name], price: params[:price], img: params[:img], description: params[:description])
+            
+            redirect "/heads/#{@head.id}"
+        else
+            redirect "/login"
+        end
+    end
+
 end
