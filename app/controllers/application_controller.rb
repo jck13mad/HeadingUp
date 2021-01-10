@@ -22,5 +22,9 @@ class ApplicationController < Sinatra::Base
     User.find(session[:user_id])
   end
 
+  not_found do
+    status 404
+    erb :'/welcome'
+  end
 
 end
