@@ -43,6 +43,15 @@ class HeadController < ApplicationController
         end
     end 
 
+    get '/heads/:id/edit' do
+        @head = Head.find_by_id(params[:id])
+        if logged_in? && current_user.heads.include?(@head)
+            erb :'/heads/edit'
+        else
+            redirect "/login"
+        end
+    end
+
     patch '/heads/:id' do
         @head = Head.find_by_id(params[:id])
         if params.empty?
