@@ -7,6 +7,15 @@
             <a href="/heads/<%= h.id %>"><img src="<%= h.img %>" alt="<%= h.brand %> - <% h.name %>" height="200" width="200"></a>
             <p><%= h.brand %> <%= h.name %></p>
             <p><b>$<%= h.price %></b></p>
+            <div class="edit_delete">
+                <form method="get" action="/heads/<%= h.id %>/edit">
+                    <input type="submit" value="Edit Head">
+                </form>   
+                <form method="post" action="/heads/<%= h.id %>/delete">
+                    <input id="hidden" type="hidden" name="_method" value="DELETE">
+                    <input type="submit" value="Delete Head">
+                </form>
+            </div>
         <% end %>
     <% end %>
 

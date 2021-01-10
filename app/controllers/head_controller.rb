@@ -65,4 +65,20 @@ class HeadController < ApplicationController
         end
     end
 
+    delete '/heads/:id/delete' do
+        if logged_in?
+            @head = Head.find_by_id(params[:id])
+            
+            if @head.user == current_user 
+                @head.delete
+            else
+                redirect "/login"
+            end
+        else
+            redirect "/login"
+        end
+
+        redirect "/heads"
+    end
+
 end

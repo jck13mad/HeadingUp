@@ -1,1 +1,13 @@
-<h1>Helloooo</h1>
+<h1>Edit Your Head Below</h1>
+
+<form action="/heads/<%= @head.id %>" method="post">
+    <input id="hidden" type="hidden" name="_method" value="PATCH">
+        <p>Brand: <input type="text" name="brand" placeholder="<%= @head.brand %>"></p>
+        <p>Name: <input type="text" name="name" placeholder="<%= @head.name %>"></p>
+        <p>Image URL: <input type="text" name="img" value="/images/default_img.png"></p>
+        <p>(If you don't have the URL, please skip this one.)</p>
+        <p>Price: $<input type="float" name="price" placeholder="<%= @head.price %>"></p>
+        <p>Description: </p>
+        <textarea name="description" value="Description" rows:"10" cols="75" placeholder="<%= @head.description %>"></textarea>
+    <input type="submit" value="Submit">
+</form>
