@@ -4,7 +4,7 @@
     <input id="hidden" type="hidden" name="_method" value="PATCH">
         <p>Brand: <input type="text" name="brand" placeholder="<%= @head.brand %>"></p>
         <p>Name: <input type="text" name="name" placeholder="<%= @head.name %>"></p>
-        <p>Image URL: <input type="text" name="img" value="/images/default_img.png"></p>
+        <p>Image URL: <input type="text" name="img" value="<%= @head.img %>"></p>
         <p>(If you don't have the URL, please skip this one.)</p>
         <p>Price: $<input type="float" name="price" placeholder="<%= @head.price %>"></p>
         <p>Description: </p>
